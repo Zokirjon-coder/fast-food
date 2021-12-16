@@ -36,3 +36,11 @@ code {
 .centered{
   justify-content: center;
 }
+
+a.active .icons{
+      background-color: transparent;
+}
+
+a.active img{
+  filter: brightness(10);
+}

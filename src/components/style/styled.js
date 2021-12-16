@@ -18,9 +18,6 @@ background: #fff;
 `;
 
 export const Menu_item = styled.div`
-padding: 5px 0 5px 50px;
-margin: 5px 50px 5px 0;
-border-radius: 0 6px 6px 0;
 display: flex;
 align-items: center;
 justify-content: flex-start;
@@ -28,7 +25,7 @@ gap: 20px;
 cursor: pointer;
 user-select: none;
 
-:nth-child(2){
+.active{
     color: white;
     background-color: #FCB600;
     .icons{

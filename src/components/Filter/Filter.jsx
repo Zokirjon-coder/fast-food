@@ -18,19 +18,19 @@ const Filter = (props) => {
             </div>
             <div className="checkboxses">
                 <div className="check">
-                    <input type="checkbox" name="" id="narxup" />
+                    <input type="radio" name="filterOpt" id="narxup" />
                     <label htmlFor="narxup">Narx bo'yicha (O'sish tartibida)</label>
                 </div>
                 <div className="check">
-                    <input type="checkbox" name="" id="narxdown" />
+                    <input type="radio" name="filterOpt" id="narxdown" />
                     <label htmlFor="narxdown">Narx bo'yicha(Kamayish tartibida)</label>
                 </div>
                 <div className="check">
-                    <input type="checkbox" name="" id="nomup" />
+                    <input type="radio" name="filterOpt" id="nomup" />
                     <label htmlFor="nomup">Nom bo'yicha(A-Z)</label>
                 </div>
                 <div className="check">
-                    <input type="checkbox" name="" id="nomdown" />
+                    <input type="radio" name="filterOpt" id="nomdown" />
                     <label htmlFor="nomdown">Nom bo'yicha(Z-A)</label>
                 </div>
             </div>

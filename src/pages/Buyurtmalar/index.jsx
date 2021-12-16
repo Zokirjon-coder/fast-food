@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-const Generic = (props) => {
+const Buyurtmalar = (props) => {
     const location = useLocation()
     return (
         <div>
@@ -10,4 +10,4 @@ const Generic = (props) => {
     )
 }
 
-export default Generic
+export default Buyurtmalar

@@ -15,12 +15,12 @@ const FoodListItem = (props) => {
                 <div className="foodaction">
                     <CircleBtn param={{ diametr: "35", borderWidth: "4" }}>
                         <Flex className="centered">
-                            <img src={Edit} alt="" />
+                            <img style={{borderRadius: 0}} src={Edit} alt="" />
                         </Flex>
                     </CircleBtn>
                     <CircleBtn onClick={() => { props.onDelete(props.info.id) }} param={{ diametr: "35", borderWidth: "4" }}>
                         <Flex className="centered">
-                            <img src={Trash} alt="" />
+                            <img style={{borderRadius: 0}} src={Trash} alt="" />
                         </Flex>
                     </CircleBtn>
                 </div>

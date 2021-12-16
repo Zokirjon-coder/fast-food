@@ -1,17 +1,39 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { HEADER, AddFood, Flex, SearchBar, CircleBtn } from '../style/styled'
 import Search from '../../assets/images/search.png'
 import Path1 from '../../assets/images/Path1.png'
 import Filter from '../Filter/Filter'
 import Drower from '../Drower/Drower'
+import { dataFood } from '../../utils/dataFood'
+import { useLocation } from 'react-router-dom'
 
 const HeaderBar = (props) => {
-    const [hideFilter, setHideFilter] = React.useState(false);
-    const [showAddFood, setShowAddFood] = React.useState(false);
+    const [hideFilter, setHideFilter] = useState(false);
+    const [showAddFood, setShowAddFood] = useState(false);
 
     const hiden = () => {
         setHideFilter(!hideFilter);
         console.log(hideFilter);
+    }
+
+    const [foods, setFoods] = useState(dataFood);
+
+    
+    const location = useLocation();
+    const local = (location) =>{
+        let localName = location.pathname.split('');
+        localName.splice(0,1);
+        // localName = localName.join('')
+        if(localName.join('').includes('lar')) localName.splice(localName.length - 3, 3);
+        console.log(<br />)
+        return  localName.join('') === 'xisobot' ? "Ma'lumotlarni \nyangilash": "Yangi " + localName.join('')  + ` qo'shish`
+    }
+
+    const onSearch = (e) => {
+        let value = e.target.value.toLowerCase();
+        setFoods(
+            dataFood.filter(data => data.name.toLowerCase().includes(value))
+        )
     }
 
     return (
@@ -25,7 +47,9 @@ const HeaderBar = (props) => {
                             <span></span>
                         </button>
                         <p>
-                            Yangi maxsulot <br /> qo'shish
+                            {
+                                local(location)
+                            } 
                         </p>
                     </Flex>
                 </AddFood>

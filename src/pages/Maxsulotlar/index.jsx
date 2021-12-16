@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import HeadingFoods from '../headingFoods/HeadingFoods'
-import HeaderBar from '../header/HeaderBar'
-import FoodListItem from '../foodListItem/FoodListItem'
-import { AddFoodButton, FoodList, MAIN } from '../style/styled'
-import { dataFood } from '../../utils/dataSidebar'
+import HeadingFoods from '../../components/headingFoods/HeadingFoods'
+import FoodListItem from '../../components/foodListItem/FoodListItem'
+import { AddFoodButton, FoodList, MAIN } from '../../components/style/styled'
+import { dataFood } from '../../utils/dataFood'
 
 
-const Main = () => {
+const Maxsulotlar = () => {
 
     const [foods, setFoods] = useState(dataFood);
 
@@ -21,15 +20,14 @@ const Main = () => {
         )
     }
     return (
-        <MAIN>
-            <HeaderBar onSearch={onSearch} />
+        <>
             <HeadingFoods />
             <FoodList>
                 {foods.map(value => <FoodListItem key={value.id} info={value} onDelete={onDelete} />)}
                 <AddFoodButton>yana yuklash</AddFoodButton>
             </FoodList>
-        </MAIN>
+        </>
     )
 }
 
-export default Main;
+export default Maxsulotlar;
