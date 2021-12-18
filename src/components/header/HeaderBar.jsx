@@ -23,9 +23,7 @@ const HeaderBar = (props) => {
     const local = (location) =>{
         let localName = location.pathname.split('');
         localName.splice(0,1);
-        // localName = localName.join('')
         if(localName.join('').includes('lar')) localName.splice(localName.length - 3, 3);
-        console.log(<br />)
         return  localName.join('') === 'xisobot' ? "Ma'lumotlarni \nyangilash": "Yangi " + localName.join('')  + ` qo'shish`
     }
 

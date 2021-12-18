@@ -60,7 +60,7 @@ export const LogoBar = styled.div`
 padding: 28px 0 0 24px;
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: flex-start;
 
 .imgLogo {
     background: url(../${({ background }) => background}) no-repeat center center;
@@ -75,7 +75,8 @@ justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    padding-right: 15px;
+    padding-right: 25px;
+    margin-left: 15px;
 
     h1{
         font-size: 18px;
