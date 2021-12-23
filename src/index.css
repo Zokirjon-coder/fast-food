@@ -44,3 +44,12 @@ a.active .icons{
 a.active img{
   filter: brightness(10);
 }
+
+.inp #file{
+    appearance: none!important;
+    -webkit-appearance: none!important;
+    -o-appearance: none!important;
+    -moz-appearance: none!important;
+    -ms-appearance: none!important;
+    opacity: 0;
+}

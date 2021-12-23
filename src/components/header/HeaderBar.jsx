@@ -10,13 +10,11 @@ import { useLocation } from 'react-router-dom'
 const HeaderBar = (props) => {
     const [hideFilter, setHideFilter] = useState(false);
     const [showAddFood, setShowAddFood] = useState(false);
+    const [foods, setFoods] = props.foods;
 
     const hiden = () => {
         setHideFilter(!hideFilter);
-        console.log(hideFilter);
     }
-
-    const [foods, setFoods] = useState(dataFood);
 
     
     const location = useLocation();
@@ -40,7 +38,7 @@ const HeaderBar = (props) => {
                 <AddFood>
                     <Drower show={[showAddFood, setShowAddFood]} />
                     <Flex className="centered">
-                        <button onClick={()=>{setShowAddFood(true); console.log(showAddFood)}}>
+                        <button onClick={()=>setShowAddFood(true)}>
                             <span></span>
                             <span></span>
                         </button>
@@ -55,7 +53,7 @@ const HeaderBar = (props) => {
                     <Flex>
                         <div className="search">
                             <Flex>
-                                <input onChange={(e) => props.onSearch(e)} type="text" placeholder="Qidirish" maxLength="30" />
+                                <input onChange={(e) => onSearch(e)} type="text" placeholder="Qidirish" maxLength="30" />
                                 <img src={Search} alt="" />
                             </Flex>
                         </div>
@@ -67,7 +65,7 @@ const HeaderBar = (props) => {
                                     <img src={Path1} alt="" />
                                 </Flex>
                             </CircleBtn>
-                            <Filter hide={hideFilter} />
+                            <Filter hide={hideFilter} foods={[foods, setFoods]} />
                         </div>
                     </Flex>
                 </SearchBar>

@@ -10,7 +10,7 @@ const FoodListItem = (props) => {
                 <img src={props.info.img} alt="" />
                 <div className="foodname">{props.info.name}</div>
                 <div className="foodkategory">{props.info.kategory}</div>
-                <div className="foodmoney">{props.info.money}</div>
+                <div className="foodprice">{props.info.price} UZS</div>
                 <div className="foodinf">{props.info.inf}</div>
                 <div className="foodaction">
                     <CircleBtn param={{ diametr: "35", borderWidth: "4" }}>

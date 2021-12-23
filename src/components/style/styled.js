@@ -137,6 +137,7 @@ button{
     padding: 18px;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
     span{
         background-color: white;
         position: absolute;
@@ -283,7 +284,7 @@ margin-left: 20px;
 div > .foodkategory{
 width: 200px;
 }
-div > .foodmoney{
+div > .foodprice{
 width: 150px;
 }
 div > .foodinf{

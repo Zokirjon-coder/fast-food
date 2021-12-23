@@ -16,7 +16,7 @@ function App() {
         <Container>
           <Sidebar />
           <MAIN>
-            <HeaderBar />
+            
             <Routes>
               {
                 dataSidebar.map(({pathname, id, component: Page}) => {
