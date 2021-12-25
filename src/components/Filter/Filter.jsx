@@ -10,7 +10,7 @@ const Filter = (props) => {
     const onFilter = ({target})=>{
         let {id, value} = target;
         setFoods(
-            foods.sort((item1, item2)=>{
+            foods.sort(function(item1, item2){
                 if (id==='priceup' && value==='on'){
                     let firstEl = Number(item1['price'].replace(',',''));
                     let secondEl = Number(item2['price'].replace(',',''));

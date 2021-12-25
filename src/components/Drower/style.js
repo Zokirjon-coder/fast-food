@@ -40,6 +40,9 @@ box-shadow: ${({ show }) => show ? '-10px 0 250px black': '0'};
             outline: 0;
             color: #2D3A45;
         }
+        select{
+            padding: 0 13px;
+        }
 
         #file{
             appearance: none;
@@ -70,11 +73,19 @@ box-shadow: ${({ show }) => show ? '-10px 0 250px black': '0'};
     }
 
     .btn{
+        position: absolute;
+        bottom: 32px;
+        left: 24px;
         button{
             border-radius: 2px;
             height: 35px;
             width: 118px;
             padding: 0; 
+            text-align: center;
+            &:hover{
+                filter: brightness(.8);
+                color: white;
+            }
         }
     }
 }

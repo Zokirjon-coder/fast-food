@@ -16,16 +16,13 @@ function App() {
         <Container>
           <Sidebar />
           <MAIN>
-            
+
             <Routes>
               {
-                dataSidebar.map(({pathname, id, component: Page}) => {
-                  return <>
-                    <Route key={id} path={pathname} element={<Page title={pathname} />} />
-                  </>
-                })
+                dataSidebar.map(({ pathname, id, component: Page }) => <Route key={id} path={pathname} element={<Page title={pathname} />} />)
               }
             </Routes>
+            
           </MAIN>
         </Container>
       </Router>

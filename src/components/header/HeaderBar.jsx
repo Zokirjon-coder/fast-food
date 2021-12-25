@@ -4,13 +4,13 @@ import Search from '../../assets/images/search.png'
 import Path1 from '../../assets/images/Path1.png'
 import Filter from '../Filter/Filter'
 import Drower from '../Drower/Drower'
-import { dataFood } from '../../utils/dataFood'
 import { useLocation } from 'react-router-dom'
 
 const HeaderBar = (props) => {
     const [hideFilter, setHideFilter] = useState(false);
     const [showAddFood, setShowAddFood] = useState(false);
     const [foods, setFoods] = props.foods;
+    const [dataFood] = useState(foods);
 
     const hiden = () => {
         setHideFilter(!hideFilter);
