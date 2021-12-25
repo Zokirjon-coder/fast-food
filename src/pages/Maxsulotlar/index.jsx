@@ -14,16 +14,13 @@ const Maxsulotlar = () => {
     const onDelete = (id) => {
         setFoods(foods.filter(data => data.id !== id));
     }
-    const onEdit = (id) => {
-        
-    }
 
     return (
         <>
             <HeaderBar foods={[foods, setFoods]} />
             <HeadingFoods />
             <FoodList>
-                {foods.map(value => <FoodListItem key={value.id} onEdit={onEdit} info={value} onDelete={onDelete} />)}
+                {foods.map(value => <FoodListItem key={value.id} info={value} onDelete={onDelete} />)}
                 <AddFoodButton onClick={()=>setFoods(dataFood)}>yana yuklash</AddFoodButton>
             </FoodList>
         </>

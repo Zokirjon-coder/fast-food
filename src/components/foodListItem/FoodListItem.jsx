@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { FoodItem, CircleBtn, Flex } from '../style/styled'
 import Trash from '../../assets/images/trash.png';
 import Edit from '../../assets/images/Path.png';
+import Drower from '../Drower/Drower';
 
 const FoodListItem = (props) => {
+    const [showEditFood, setShowEditFood] = useState(false);
+    
     return (
         <FoodItem>
             <Flex>
@@ -13,7 +16,7 @@ const FoodListItem = (props) => {
                 <div className="foodprice">{props.info.price} UZS</div>
                 <div className="foodinf">{props.info.inf}</div>
                 <div className="foodaction">
-                    <CircleBtn param={{ diametr: "35", borderWidth: "4" }}>
+                    <CircleBtn onClick={()=>setShowEditFood(true)} param={{ diametr: "35", borderWidth: "4" }}>
                         <Flex className="centered">
                             <img style={{borderRadius: 0}} src={Edit} alt="" />
                         </Flex>
@@ -25,6 +28,7 @@ const FoodListItem = (props) => {
                     </CircleBtn>
                 </div>
             </Flex>
+            <Drower input='edit' id={(props.info.id)} show={[showEditFood, setShowEditFood]} />
         </FoodItem>
     )
 }

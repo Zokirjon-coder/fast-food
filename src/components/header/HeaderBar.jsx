@@ -36,7 +36,7 @@ const HeaderBar = (props) => {
         <HEADER>
             <Flex>
                 <AddFood>
-                    <Drower show={[showAddFood, setShowAddFood]} />
+                    <Drower input='add' show={[showAddFood, setShowAddFood]} />
                     <Flex className="centered">
                         <button onClick={()=>setShowAddFood(true)}>
                             <span></span>
