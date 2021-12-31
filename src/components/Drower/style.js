@@ -82,6 +82,9 @@ box-shadow: ${({ show }) => show ? '-10px 0 250px black': '0'};
             width: 118px;
             padding: 0; 
             text-align: center;
+            border: 0;
+            outline: 0;
+            background: #20D472;
             &:hover{
                 filter: brightness(.8);
                 color: white;

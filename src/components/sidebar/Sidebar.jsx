@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SidebarContainer } from '../style/styled';
 import Logo from '../Logo/Logo';
 import Menu from '../menu/Menu';

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import MenuItem from "../menuItem/MenuItem";
 
 export const Container = styled.div`
 padding: 5px 30px;
@@ -122,6 +121,23 @@ align-items: center;
 height: 100%;
 `;
 
+Flex.spaceBtwn = styled.div`
+display: flex;
+align-items: center;
+height: 100%;
+justify-content: space-between;
+`;
+
+Flex.spaceBtwnHA = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+` 
+
+Flex.flex = styled.div`
+display: flex;
+`
+
 export const AddFood = styled.div`
 min-width: 200px;
 margin: 0 2px;
@@ -157,6 +173,7 @@ button{
 
 p{
     font-size: 13px;
+    width: 50%;
 }
 `;
 

@@ -54,7 +54,7 @@ export default function Drower(props) {
         <DROWER show={showAddFood}>
             <DROWER.CloseBtn show={showAddFood} onClick={() => setShowAddFood(false)}></DROWER.CloseBtn>
             <div className="container">
-                <h1>Yangi maxsulot qo'shish</h1>
+                <h1>{props.input==='edit'? 'Maxsulotni tahrirlash' : "Yangi maxsulot qo'shish"}</h1>
                 <div className="inp">
                     <p className="titleInp">Maxsulot nomi</p>
                     <input required type="text" ref={foodName} name="" id="" placeholder='maxsulot nomi' />

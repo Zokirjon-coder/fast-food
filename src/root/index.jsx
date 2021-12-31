@@ -1,6 +1,5 @@
 import Sidebar from '../components/sidebar/Sidebar';
 import { Container, MAIN } from '../components/style/styled';
-import HeaderBar from '../components/header/HeaderBar';
 import {
   BrowserRouter as Router,
   Routes,

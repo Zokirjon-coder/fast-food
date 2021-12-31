@@ -1,15 +1,15 @@
 import React from 'react'
-import { Menu_icon, Menu_item, Menu_title } from '../style/styled'
+import { Menu_icon as MenuIcon, Menu_item as Menuitem, Menu_title as Menutitle } from '../style/styled'
 
 const MenuItem = (props) => {
 
     return (
-        <Menu_item>
-            <Menu_icon className="icons">
+        <Menuitem>
+            <MenuIcon className="icons">
                 <img src={props.data.image} alt="" />
-            </Menu_icon>
-            <Menu_title>{props.data.title}</Menu_title>
-        </Menu_item>
+            </MenuIcon>
+            <Menutitle>{props.data.title}</Menutitle>
+        </Menuitem>
     )
 }
 

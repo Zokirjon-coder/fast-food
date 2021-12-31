@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import HeadingFoods from '../../components/headingFoods/HeadingFoods'
 import FoodListItem from '../../components/foodListItem/FoodListItem'
-import { AddFoodButton, FoodList, MAIN } from '../../components/style/styled'
+import { AddFoodButton, FoodList } from '../../components/style/styled'
 import { dataFood } from '../../utils/dataFood'
 import HeaderBar from '../../components/header/HeaderBar'
 import { MahsulotlarApi } from '../../context/maxsulotlar/MahsulotlarContext'

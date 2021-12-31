@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { LogoBar } from '../style/styled';
 import logoImg from '../../assets/images/logo.png'
 
