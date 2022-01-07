@@ -1,13 +1,18 @@
 import React, { useContext, useRef } from 'react';
 import { DROWER } from './style';
 import { dataFood } from '../../utils/dataFood';
-import UploadImage from '../../assets/images/upload-cloud.png'
-import { MahsulotlarApi } from '../../context/maxsulotlar/MahsulotlarContext';
-import Colacola from '../../assets/images/cocacola1.5.png'
+import UploadImage from '../../assets/images/upload-cloud.png';
+import { FilialsApi } from '../../context/FilialarContext';
+import Colacola from '../../assets/images/cocacola1.5.png';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 export default function Drower(props) {
-    let [showAddFood, setShowAddFood] = props.show;
-    const [foods, setFoods] = useContext(MahsulotlarApi);
+    let [showAddFilial, setShowAddFilial] = props.show;
+    const [foods, setFoods] = useContext(FilialsApi);
+    const { isLoaded } = useJsApiLoader({
+        googleMapsApiKey: 'AIzaSyA_U0mN3C9vg2qJnvZzAPr9OCP9opJYV8E',
+        id: 'ApiKey',
+    })
 
     const foodName = useRef();
     const foodKategory = useRef();
@@ -27,10 +32,10 @@ export default function Drower(props) {
         }
 
         setFoods([...foods, newFood]);
-        setShowAddFood(false);
+        setShowAddFilial(false);
     }
 
-    const EditFood = (id) =>{
+    const EditFood = (id) => {
         let newFood = {
             id: id,
             img: Colacola,
@@ -50,14 +55,14 @@ export default function Drower(props) {
         })
 
         setFoods(newFoods);
-        setShowAddFood(false);
+        setShowAddFilial(false);
     }
 
     return (
-        <DROWER show={showAddFood}>
-            <DROWER.CloseBtn show={showAddFood} onClick={() => setShowAddFood(false)}></DROWER.CloseBtn>
+        <DROWER show={showAddFilial}>
+            <DROWER.CloseBtn show={showAddFilial} onClick={() => setShowAddFilial(false)}></DROWER.CloseBtn>
             <div className="container">
-                <h1>{props.input==='edit'? 'Maxsulotni tahrirlash' : "Yangi maxsulot qo'shish"}</h1>
+                <h1>{props.input === 'edit' ? 'Maxsulotni tahrirlash' : "Yangi maxsulot qo'shish"}</h1>
                 <div className="inp">
                     <p className="titleInp">Maxsulot nomi</p>
                     <input required type="text" ref={foodName} name="" id="" placeholder='maxsulot nomi' />
@@ -80,12 +85,24 @@ export default function Drower(props) {
                     <input type="text" name="" ref={foodInfo} id="" placeholder='maxsulot haqda qisqacha..' />
                 </div>
                 <div className="inp" style={{ 'opacity': 1, border: '1px solid var(--grey)' }}>
-                    <input required type="file" ref={foodImage} name="" id="file" />
-                    <img src={UploadImage} alt="" />
-                    <span>Maxsulot rasmini yuklang!</span>
+                    {
+                        isLoaded &&
+                        <GoogleMap
+                            id='map'
+                            mapContainerStyle={{
+                                width: '100%',
+                                height: '150px',
+                                borderRadius: '10px',
+                            }}
+                            zoom={5}
+                            center={{ lat: 40.768810, lng: 72.236282 }}
+                        >
+
+                        </GoogleMap>
+                    }
                 </div>
                 <div className="btn">
-                    <button onClick={() => props.input==='edit' ? EditFood(props.id) : AddFood()}>Saqlash</button>
+                    <button onClick={() => props.input === 'edit' ? EditFood(props.id) : AddFood()}>Saqlash</button>
                 </div>
             </div>
         </DROWER>

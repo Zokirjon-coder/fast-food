@@ -5,12 +5,13 @@ import Drower from '../../components/Drower/Drower'
 import { ShowType, TypeBook, Conatiner, Wrapper, ColumnName, CradSumm } from './style'
 import { BooksApi } from '../../context/BuyurtmalarContext/BuyurtmalarContext';
 import CardColumn from '../../components/CardColumn/Index'
+import CardRow from '../../components/CardRow/Index'
 
 const Buyurtmalar = (props) => {
     const [showAddFood, setShowAddFood] = useState(false);
     const [books, setBooks] = useContext(BooksApi);
-    const [type, setType] = useState('yangi');
-    const [showType, setShowType] = useState('column');
+    const [type, setType] = useState('Yangi');
+    const [showType, setShowType] = useState('row');
     const location = useLocation();
     const local = (location) => {
         let localName = location.pathname.split('');
@@ -29,13 +30,14 @@ const Buyurtmalar = (props) => {
 
     // console.log(Object.entries(books))
     const columnCard = (dataBooks) => {
+        const colors = ['#20D472', '#11ACFD', '#FCB600', '#8E007E'];
         return (
             <>
                 {
-                    Object.entries(dataBooks).map(([key, data]) => (
+                    Object.entries(dataBooks).map(([key, data], index) => (
                         <Wrapper.column key={key}>
                             <ColumnName>{key}<ColumnName.length>{data.length}</ColumnName.length> </ColumnName>
-                            <CradSumm> <CradSumm.indikator bg={'green'}></CradSumm.indikator> {data.reduce((summ, value) =>
+                            <CradSumm> <CradSumm.indikator bg={colors[index]}></CradSumm.indikator> {data.reduce((summ, value) =>
                                 summ += Number(value.total), 0)} UZS </CradSumm>
                             {
                                 data.map(value => <CardColumn key={value.id} value={value} />)
@@ -46,10 +48,12 @@ const Buyurtmalar = (props) => {
             </>
         );
     }
-    const rowCard = () => {
+    const rowCard = (dataBooks, showCategoria) => {
         return (
             <>
-                <CardColumn />
+                {
+                    dataBooks[showCategoria].map(value => <CardRow key={value.id} data={value} />)
+                }
             </>
         );
     }
@@ -78,10 +82,10 @@ const Buyurtmalar = (props) => {
                                 alignItems: 'center',
                                 justifyContent: 'space-beatween'
                             }}>
-                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType('yangi')} active={type === 'yangi'}>Yangi</TypeBook.name>
-                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType('qabul qilingan')} active={type === "qabul qilingan"}>Qabul qilingan</TypeBook.name>
-                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType("jo'natilgan")} active={type === "jo'natilgan"}>Jo'natilgan</TypeBook.name>
-                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType('yopilgan')} active={type === "yopilgan"}>Yopilgan</TypeBook.name>
+                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType('Yangi')} active={type === 'Yangi'}>Yangi</TypeBook.name>
+                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType('Qabul qilingan')} active={type === "Qabul qilingan"}>Qabul qilingan</TypeBook.name>
+                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType("Jo'natilgan")} active={type === "Jo'natilgan"}>Jo'natilgan</TypeBook.name>
+                                <TypeBook.name isDisabled={showType === "column"} onClick={() => activeType('Yopilgan')} active={type === "Yopilgan"}>Yopilgan</TypeBook.name>
                             </Flex>
                         </TypeBook.type>
                     </TypeBook>
@@ -106,10 +110,10 @@ const Buyurtmalar = (props) => {
 
                     {
 
-                        showType === 'row' ? rowCard() : columnCard(books)
+                        showType === 'row' ? rowCard(books, type) : columnCard(books)
 
                     }
-                    
+
                 </Wrapper>
             </Conatiner>
         </>

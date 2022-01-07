@@ -14,12 +14,9 @@ function CardColumn(props) {
 
     const onDelete = ({ categoria, id }) => {
         setBooks(
-            Object.fromEntries(Object.entries(books)
-                .forEach(value => value[1]
-                    .filter(data => data.categoria !== categoria && data.id !== id)
-                )
+            Object.fromEntries(Object.entries(books).map(([key, data]) => [key, data.filter(value => value.id !== id || value.categoria !== categoria)]))
             )
-        )
+            // Object.keys(books).map(key => books[key].filter(value => value.categoria !== categoria || value.id !== id))
     }
 
     return (

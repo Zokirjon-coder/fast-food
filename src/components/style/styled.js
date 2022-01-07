@@ -291,7 +291,6 @@ margin-bottom: 5px;
 
 div > img{
 border-radius: 50%;
-
 }
 div > .foodname{
 width: 150px;
@@ -420,5 +419,152 @@ display: ${({hide}) => hide ? "block" : "none" };
             }
         }
     }
+}
+`;
+
+
+export const HeadingsKategory = styled.div`
+margin: 20px 0;
+background-color: white;
+padding: 8px 0 8px 60px;
+border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+text-transform: uppercase;
+font-size: 13px;
+font-weight: 600;
+
+
+div > div{
+    padding: 3px 5px;
+    border-left: 1px solid rgba(0, 0, 0, 0.3)
+    
+}
+
+.kategoryuz{
+    width: 250px;
+    border: 0;
+}
+.kategoryru{
+    width: 251px;
+}
+.kategorymain{
+    width: 250px;
+}
+
+.action{
+    flex: 1;
+}
+`;
+
+export const KategoryItem = styled.div`
+background-color: white;
+padding: 5px 15px;
+border-radius: 5px;
+transition: box-shadow linear .5s;
+margin-bottom: 5px;
+
+:hover{
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+}
+
+}
+div > .kategoryuz{
+width: 245px;
+margin-left: 20px;
+}
+
+div > .kategoryru{
+width: 255px;
+}
+div > .kategorymain{
+width: 230px;
+}
+
+div > .kategoryaction{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+`;
+
+export const FilialItem = styled.div`
+background-color: white;
+padding: 5px 15px;
+border-radius: 5px;
+transition: box-shadow linear .5s;
+margin-bottom: 5px;
+font-size: 14px;
+
+:hover{
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+}
+
+div > img{
+border-radius: 50%;
+}
+
+div > .filialnameuz{
+width: 180px;
+margin-left: 20px;
+}
+
+div > .filialnameru{
+width: 180px;
+}
+div > .mark{
+width: 200px;
+}
+div > .worktime{
+width: 160px;
+}
+
+div > .fillialaction{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+`;
+
+export const HeadingsFilial = styled.div`
+margin: 20px 0;
+background-color: white;
+padding: 8px 0 8px 60px;
+border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+text-transform: uppercase;
+font-size: 13px;
+font-weight: 600;
+
+
+div > div{
+    padding: 3px 5px;
+    border-left: 1px solid rgba(0, 0, 0, 0.3)
+}
+
+.maxsulot{
+    width: 180px;
+    border: 0;
+}
+
+.fillial{
+    min-width: 180px;
+}
+
+.moljal{
+    min-width: 200px;
+}
+
+.ishvaqti{
+    min-width: 180px;
+}
+
+.kategoriya{
+width: 200px;
+}
+
+.narxi{
+    width: 150px;
+}
+
+.qoshimcha{
+    width: 220px;
 }
 `;
