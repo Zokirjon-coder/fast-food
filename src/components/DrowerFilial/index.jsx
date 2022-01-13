@@ -97,7 +97,7 @@ export default function Drower(props) {
                             zoom={5}
                             center={{ lat: 40.768810, lng: 72.236282 }}
                         >
-
+                            <Marker position={{lat: 40.768810, lng: 72.236282}}></Marker>
                         </GoogleMap>
                     }
                 </div>

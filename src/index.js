@@ -4,6 +4,7 @@ import MahsulotlarContext from './context/maxsulotlar/MahsulotlarContext';
 import BuyurtmalarContext from './context/BuyurtmalarContext/BuyurtmalarContext';
 import KategorialarContex from './context/Bategorialar/KategorialarContex';
 import FilialarContext from './context/FilialarContext';
+import CustomersContext from './context/CustomersContext';
 import './index.css';
 import Root from './root';
 
@@ -13,7 +14,9 @@ ReactDOM.render(
       <MahsulotlarContext>
         <KategorialarContex>
           <FilialarContext>
-            <Root />
+            <CustomersContext>
+              <Root />
+            </CustomersContext>
           </FilialarContext>
         </KategorialarContex>
       </MahsulotlarContext>

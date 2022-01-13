@@ -20,6 +20,7 @@ function App() {
               {
                 dataSidebar.map(({ pathname, id, component: Page }) => <Route key={id} path={pathname} element={<Page title={pathname} />} />)
               }
+              <Route path='*' element={<h1>page not found</h1>} />
             </Routes>
             
           </MAIN>

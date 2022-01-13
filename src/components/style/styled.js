@@ -209,7 +209,7 @@ border-radius: 50%;
 position: relative;
 background-color: white;
 border: ${({ param }) => param.borderWidth + 'px'} solid whitesmoke;
-margin-left: 25px;
+margin-left: ${({noML})=> !noML ? '25px': 0};
 transition: border linear .2s;
 cursor: pointer;
 
