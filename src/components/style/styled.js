@@ -121,6 +121,17 @@ align-items: center;
 height: 100%;
 `;
 
+Flex.Xisobot = styled.div`
+display: flex;
+align-items: center;
+height: 100%;
+font-size: 12px;
+span{
+    color: grey;
+font-size: 10px;
+}
+`
+
 Flex.spaceBtwn = styled.div`
 display: flex;
 align-items: center;
@@ -132,7 +143,7 @@ Flex.spaceBtwnHA = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-` 
+`
 
 Flex.flex = styled.div`
 display: flex;
@@ -150,10 +161,19 @@ height: 100%;
 button{
     all: unset;
     background-color: #20D472;
-    padding: 18px;
+    /* padding: 18px; */
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
     border-radius: 50%;
     position: relative;
     cursor: pointer;
+
+    img{
+        width: 25px;
+        transform: rotateY(180deg);
+    }
     span{
         background-color: white;
         position: absolute;
@@ -209,7 +229,7 @@ border-radius: 50%;
 position: relative;
 background-color: white;
 border: ${({ param }) => param.borderWidth + 'px'} solid whitesmoke;
-margin-left: ${({noML})=> !noML ? '25px': 0};
+margin-left: ${({ noML }) => !noML ? '25px' : 0};
 transition: border linear .2s;
 cursor: pointer;
 
@@ -340,7 +360,7 @@ box-shadow: 0px 20px 25px rgba(176, 177, 181, 0.432802);
 padding: 20px 24px;
 text-align: left;
 font-size: 12px;
-display: ${({hide}) => hide ? "block" : "none" };
+display: ${({ hide }) => hide ? "block" : "none"};
 ::before{
     content: '';
     width: 40px;

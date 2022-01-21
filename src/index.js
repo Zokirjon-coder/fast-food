@@ -5,6 +5,7 @@ import BuyurtmalarContext from './context/BuyurtmalarContext/BuyurtmalarContext'
 import KategorialarContex from './context/Bategorialar/KategorialarContex';
 import FilialarContext from './context/FilialarContext';
 import CustomersContext from './context/CustomersContext';
+import XisobotlarContext from './context/XisobotlarContext/XisobotlarContext';
 import './index.css';
 import Root from './root';
 
@@ -15,7 +16,9 @@ ReactDOM.render(
         <KategorialarContex>
           <FilialarContext>
             <CustomersContext>
-              <Root />
+              <XisobotlarContext>
+                <Root />
+              </XisobotlarContext>
             </CustomersContext>
           </FilialarContext>
         </KategorialarContex>

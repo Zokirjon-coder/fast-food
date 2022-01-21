@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
-import { HEADER, AddFood, Flex, SearchBar, CircleBtn, FoodList } from '../../components/style/styled'
+import { HEADER, AddFood, Flex, SearchBar, FoodList } from '../../components/style/styled'
 import DrowerKategory from '../../components/DrowerKategory'
 import Search from '../../assets/images/search.png'
 import { KategoriaApi } from '../../context/Bategorialar/KategorialarContex'
@@ -22,7 +22,7 @@ const Kategoriyalar = (props) => {
     const onSearch = ({target}) => {
         let value = target.value.toLowerCase();
         setKategoria(
-            dataKategoria.filter(data => data.kateg.toLowerCase().includes(value))
+            dataKategoria.filter(data => data.kategoriaUz.toLowerCase().includes(value))
         )
     }
 

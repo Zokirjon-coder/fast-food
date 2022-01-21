@@ -72,8 +72,8 @@ export const dataSidebar = [
     {
         id: 7,
         image: katalogImg,
-        title: 'katalog',
-        pathname: '/katalog',
+        title: 'bildirishnoma',
+        pathname: '/bildirishnoma',
         child: [],
         hidden: false,
         component: Katalog,

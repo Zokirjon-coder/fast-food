@@ -1,24 +1,20 @@
 import React, { useContext, useRef } from 'react';
 import { DROWER } from './style';
 import { dataFood } from '../../utils/dataFood';
-import UploadImage from '../../assets/images/upload-cloud.png';
 import { FilialsApi } from '../../context/FilialarContext';
 import Colacola from '../../assets/images/cocacola1.5.png';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { YMaps, Map, Placemark, ZoomControl } from 'react-yandex-maps'
 
 export default function Drower(props) {
     let [showAddFilial, setShowAddFilial] = props.show;
-    const [foods, setFoods] = useContext(FilialsApi);
-    const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: 'AIzaSyA_U0mN3C9vg2qJnvZzAPr9OCP9opJYV8E',
-        id: 'ApiKey',
-    })
+    const [filials, setFilials] = useContext(FilialsApi);
+    const location = props.location;
+
 
     const foodName = useRef();
     const foodKategory = useRef();
     const foodPrice = useRef();
     const foodInfo = useRef();
-    const foodImage = useRef();
 
     const AddFood = () => {
 
@@ -31,7 +27,7 @@ export default function Drower(props) {
             inf: foodInfo.current.value,
         }
 
-        setFoods([...foods, newFood]);
+        setFilials([...filials, newFood]);
         setShowAddFilial(false);
     }
 
@@ -45,7 +41,7 @@ export default function Drower(props) {
             inf: foodInfo.current.value,
         }
         let newFoods = [];
-        foods.forEach(food => {
+        filials.forEach(food => {
             if (id !== food.id) {
                 newFoods = [...newFoods, food];
             } else {
@@ -54,7 +50,7 @@ export default function Drower(props) {
 
         })
 
-        setFoods(newFoods);
+        setFilials(newFoods);
         setShowAddFilial(false);
     }
 
@@ -84,22 +80,27 @@ export default function Drower(props) {
                     <p className="titleInp">Qo'shimcha ma'lumot</p>
                     <input type="text" name="" ref={foodInfo} id="" placeholder='maxsulot haqda qisqacha..' />
                 </div>
-                <div className="inp" style={{ 'opacity': 1, border: '1px solid var(--grey)' }}>
-                    {
-                        isLoaded &&
-                        <GoogleMap
-                            id='map'
-                            mapContainerStyle={{
-                                width: '100%',
-                                height: '150px',
-                                borderRadius: '10px',
+                <div className="inp" style={{
+                    opacity: 1,
+                    border: '1px solid var(--grey)',
+                    width: '100%',
+                    height: '150px'
+                }}>
+
+                    <YMaps>
+                        <Map
+                            defaultState={{
+                                center: location,
+                                zoom: 5,
                             }}
-                            zoom={5}
-                            center={{ lat: 40.768810, lng: 72.236282 }}
+                            width='100%'
+                            height='100%'
                         >
-                            <Marker position={{lat: 40.768810, lng: 72.236282}}></Marker>
-                        </GoogleMap>
-                    }
+                            <Placemark geometry={location} />
+                            <ZoomControl options={{ float: 'right' }} />
+                        </Map>
+                    </YMaps>
+
                 </div>
                 <div className="btn">
                     <button onClick={() => props.input === 'edit' ? EditFood(props.id) : AddFood()}>Saqlash</button>

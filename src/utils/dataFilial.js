@@ -6,6 +6,7 @@ export const dataFilial = [
         mark: "Metro ro'parasida",
         worktime_start: '09:00',
         worktime_end: '20:00',
+        location: [40.768810, 72.236282],
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ export const dataFilial = [
         mark: "Royson dom oldida",
         worktime_start: '09:00',
         worktime_end: '20:00',
+        location: [41.316441, 69.294861],
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ export const dataFilial = [
         mark: "Metro ro'parasida",
         worktime_start: '09:00',
         worktime_end: '20:00',
+        location: [41.315280, 69.289190],
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ export const dataFilial = [
         mark: "Hamkorbank ro'parasida",
         worktime_start: '09:00',
         worktime_end: '20:00',
+        location: [39.647100, 66.960290],
     },
     {
         id: 5,
@@ -38,5 +42,6 @@ export const dataFilial = [
         mark: "Aloqa uyi ro'parasida",
         worktime_start: '09:00',
         worktime_end: '20:00',
+        location: [41.315280, 69.289190],
     },
 ]

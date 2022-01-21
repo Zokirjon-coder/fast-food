@@ -30,7 +30,11 @@ export default function Drower(props) {
         setShowAddFood(false);
     }
 
-    const EditFood = (id) =>{
+    const FindeIndex = () => foods.indexOf(props.item);
+
+
+    const EditFood = (id) => {
+        let index = FindeIndex();
         let newFood = {
             id: id,
             img: Colacola,
@@ -39,15 +43,8 @@ export default function Drower(props) {
             price: foodPrice.current.value,
             inf: foodInfo.current.value,
         }
-        let newFoods = [];
-        foods.forEach(food => {
-            if (id !== food.id) {
-                newFoods = [...newFoods, food];
-            } else {
-                newFoods = [...newFoods, newFood];
-            }
-
-        })
+        let newFoods = [...foods];
+        newFoods.splice(index, 1, newFood)
 
         setFoods(newFoods);
         setShowAddFood(false);
@@ -57,7 +54,7 @@ export default function Drower(props) {
         <DROWER show={showAddFood}>
             <DROWER.CloseBtn show={showAddFood} onClick={() => setShowAddFood(false)}></DROWER.CloseBtn>
             <div className="container">
-                <h1>{props.input==='edit'? 'Maxsulotni tahrirlash' : "Yangi maxsulot qo'shish"}</h1>
+                <h1>{props.input === 'edit' ? 'Maxsulotni tahrirlash' : "Yangi maxsulot qo'shish"}</h1>
                 <div className="inp">
                     <p className="titleInp">Maxsulot nomi</p>
                     <input required type="text" ref={foodName} name="" id="" placeholder='maxsulot nomi' />
@@ -85,7 +82,7 @@ export default function Drower(props) {
                     <span>Maxsulot rasmini yuklang!</span>
                 </div>
                 <div className="btn">
-                    <button onClick={() => props.input==='edit' ? EditFood(props.id) : AddFood()}>Saqlash</button>
+                    <button onClick={() => props.input === 'edit' ? EditFood(props.id) : AddFood()}>Saqlash</button>
                 </div>
             </div>
         </DROWER>

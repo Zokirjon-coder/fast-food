@@ -28,7 +28,7 @@ const FoodListItem = (props) => {
                     </CircleBtn>
                 </div>
             </Flex>
-            <Drower input='edit' id={(props.info.id)} show={[showEditFood, setShowEditFood]} />
+            <Drower input='edit' item={(props.info)} id={(props.info.id)} show={[showEditFood, setShowEditFood]} />
         </FoodItem>
     )
 }

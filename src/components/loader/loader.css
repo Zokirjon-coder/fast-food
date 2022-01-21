@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+
+.loader {
+    background-color: #222;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+
+.lumiere {
+    position: fixed;
+    top: calc(50% - 150px);
+    left: calc(50% - 25px);
+    color: rgb(255, 174, 0);
+
+    width: 50px;
+    height: 50px;
+
+    background-color: white;
+    border-radius: 100%;
+
+    box-shadow: 0 0 250px white;
+}
+
+.triangle {
+    background-color: transparent;
+    height: 0px;
+    width: 0px;
+
+    position: fixed;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+
+    box-shadow: 0 0 10px black;
+
+    border-style: solid;
+    border-width: 50px 50px 50px 50px;
+    border-radius: 2px;
+    border-color: #fdba10 #FCB600 #d49801 #ecaa02;
+
+    animation: animtrgl 3s infinite ease;
+}
+
+.loader > span {
+    font-family: 'Staatliches', cursive;
+    color: white;
+    font-size: 25px;
+    width: 250px;
+    text-align: center;
+    display: block;
+    height: 50px;
+    position: fixed;
+    top: calc(50% + 100px);
+    left: calc(50% - 125px);
+    animation: textload 3s infinite ease;
+    text-shadow: 0 0 4px black;
+}
+
+@keyframes textload {
+    0% {
+        top: calc(50% + 100px);
+    }
+
+    25% {
+        top: calc(50% + 85px);
+    }
+
+    50% {
+        top: calc(50% + 100px);
+    }
+
+    75% {
+        top: calc(50% + 85px);
+    }
+
+    100% {
+        top: calc(50% + 100px);
+    }
+}
+
+@keyframes animtrgl {
+    0% {
+        border-width: 50px 75px 50px 25px;
+        transform: scale(2);
+    }
+
+    25% {
+        border-width: 25px 50px 75px 50px;
+        transform: scale(1.75);
+    }
+
+    50% {
+        border-width: 50px 25px 50px 75px;
+        transform: scale(2);
+    }
+
+    75% {
+        border-width: 75px 50px 25px 50px;
+        transform: scale(1.75);
+    }
+
+    100% {
+        border-width: 50px 75px 50px 25px;
+        transform: scale(2);
+    }
+}

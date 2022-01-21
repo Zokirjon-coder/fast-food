@@ -5,28 +5,30 @@ import Edit from '../../assets/images/Path.png';
 import Mark from '../../assets/images/map-pin.png';
 import DrowerFilial from '../DrowerFilial';
 import { FilialsApi } from '../../context/FilialarContext';
+import { dataFilial } from '../../utils/dataFilial';
+import DrowerLocation from '../drowerLocation';
 
 const FilialListItem = (props) => {
     const [showEditFilial, setShowEditFilial] = useState(false);
-    const {id, filialnameuz, filialnameru, mark, worktime_start, worktime_end} = props.info;
+    const [showLoc, setShowLoc] = useState(false);
+    const {id, filialnameuz, filialnameru, mark, worktime_start, worktime_end, location} = props.info;
     const [filials, setFilials] = useContext(FilialsApi);
 
     const onDelete = (id) => {
         setFilials(
-            filials.filter(filial => filial.id !== id)
+            dataFilial.filter(filial => filial.id !== id)
         );
     };
     
     return (
         <FilialItem>
             <Flex>
-                <img src={props.info.img} alt="" />
                 <div className="filialnameuz">{filialnameuz}</div>
                 <div className="filialnameru">{filialnameru}</div>
                 <div className="mark">{mark}</div>
                 <div className="worktime">{worktime_start} - {worktime_end}</div>
                 <div className="fillialaction">
-                    <CircleBtn onClick={()=>setShowEditFilial(true)} param={{ diametr: "35", borderWidth: "4" }}>
+                    <CircleBtn onClick={()=>setShowLoc(true)} param={{ diametr: "35", borderWidth: "4" }}>
                         <Flex className="centered">
                             <img style={{borderRadius: 0}} src={Mark} alt="" />
                         </Flex>
@@ -43,7 +45,8 @@ const FilialListItem = (props) => {
                     </CircleBtn>
                 </div>
             </Flex>
-            <DrowerFilial input='edit' id={(id)} show={[showEditFilial, setShowEditFilial]} />
+            <DrowerLocation showLocation={[showLoc, setShowLoc]} location={location} />
+            <DrowerFilial input='edit' id={(id)} show={[showEditFilial, setShowEditFilial]} location={location} />
         </FilialItem>
     )
 }
