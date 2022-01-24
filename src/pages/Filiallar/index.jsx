@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
-import { HEADER, AddFood, Flex, SearchBar, CircleBtn, FoodList } from '../../components/style/styled'
-import DrowerKategory from '../../components/DrowerKategory'
+import { HEADER, AddFood, Flex, SearchBar, FoodList } from '../../components/style/styled'
+import DrowerFilial from '../../components/DrowerFilial'
 import Search from '../../assets/images/search.png'
 import HeadingFilials from '../../components/headingFilials'
 import FilialListItem from '../../components/filialListItem'
@@ -31,7 +31,7 @@ const Filiallar = (props) => {
         <HEADER>
             <Flex>
                 <AddFood>
-                    <DrowerKategory lengthData={dataFilial.length} input='add' show={[showAddFilial, setShowAddFilial]} />
+                    <DrowerFilial location={[41.316441, 69.294861]} lengthData={dataFilial.length} input='add' show={[showAddFilial, setShowAddFilial]} />
                     <Flex className="centered">
                         <button onClick={()=>setShowAddFilial(true)}>
                             <span></span>

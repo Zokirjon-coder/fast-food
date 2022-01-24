@@ -4,7 +4,7 @@ import Trash from '../../assets/images/trash.png';
 import Edit from '../../assets/images/Path.png';
 import active from '../../assets/images/check-circle.png';
 import deactive from '../../assets/images/slash.png';
-import DrowerFilial from '../DrowerFilial';
+import DrowerCustomers from '../DrowerCustomers';
 import { CustomersApi } from '../../context/CustomersContext';
 
 const CustomerListItem = (props) => {
@@ -66,7 +66,7 @@ const CustomerListItem = (props) => {
                     </CircleBtn>
                 </div>
             </Flex>
-            <DrowerFilial input='edit' id={(id)} show={[showEditFilial, setShowEditFilial]} />
+            <DrowerCustomers input='edit' id={(id)} show={[showEditFilial, setShowEditFilial]} />
         </FilialItem>
     )
 }

@@ -4,6 +4,7 @@ import Search from '../../assets/images/search.png'
 import Path1 from '../../assets/images/Path1.png'
 import Filter from '../Filter/Filter'
 import Drower from '../Drower/Drower'
+import DrowerCustomer from '../DrowerCustomers'
 import { useLocation } from 'react-router-dom'
 
 const HeaderBar = (props) => {
@@ -11,6 +12,7 @@ const HeaderBar = (props) => {
     const [showAddFood, setShowAddFood] = useState(false);
     const [foods, setFoods] = props.foods;
     const [dataFood] = useState(foods);
+    const For = props.For;
 
     const hiden = () => {
         setHideFilter(!hideFilter);
@@ -36,7 +38,13 @@ const HeaderBar = (props) => {
         <HEADER>
             <Flex>
                 <AddFood>
-                    <Drower input='add' show={[showAddFood, setShowAddFood]} />
+                    {
+                        For==="customers" ? 
+                        <DrowerCustomer input='add' show={[showAddFood, setShowAddFood]} /> 
+                        :
+                        <Drower input='add' show={[showAddFood, setShowAddFood]} />
+                    }
+                    
                     <Flex className="centered">
                         <button onClick={()=>setShowAddFood(true)}>
                             <span></span>

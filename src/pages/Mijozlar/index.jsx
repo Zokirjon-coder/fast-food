@@ -20,7 +20,7 @@ const Mijozlar = (props) => {
 
     return (
         <>
-            <Headerbar foods={[customer, setCustomer]} />
+            <Headerbar foods={[customer, setCustomer]} For="customers" />
             <Headings>
                 <Flex>
                     {

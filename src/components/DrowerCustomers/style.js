@@ -101,6 +101,46 @@ box-shadow: ${({ show }) => show ? '-10px 0 250px black': '0'};
             }
         }
     }
+    .check{
+        user-select: none;
+        display: flex;
+        justify-content: flex-start;
+        column-gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 12px;
+        input{
+            --webkit-appearance: none;
+            appearance: none;
+            padding: 8px;
+            border: 1px solid var(--main-color);
+            border-radius: 2px;
+            position: relative;
+            &::before{
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background: var(--main-color);
+                padding: 5px;
+                border-radius: 2px;
+                transition: all .2s;
+            }
+
+            &:not(:checked){
+                border-color: var(--grey);
+            }
+            
+            &:hover{
+                border-color: var(--main-color);
+            }
+            
+            &:not(:checked)::before{
+                transform: scale(0);
+            }
+        }
+    }
 }
 `
 DROWER.CloseBtn = styled.div`

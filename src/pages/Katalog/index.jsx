@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { HEADER, AddFood, Flex, SearchBar } from '../../components/style/styled'
 import Search from '../../assets/images/search.png'
 import { XisobotlarApi } from '../../context/XisobotlarContext/XisobotlarContext'

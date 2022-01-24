@@ -1,8 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import { DROWER } from './style';
-import { dataFood } from '../../utils/dataFood';
+import { dataFilial } from '../../utils/dataFilial';
 import { FilialsApi } from '../../context/FilialarContext';
-import Colacola from '../../assets/images/cocacola1.5.png';
 import { YMaps, Map, Placemark, ZoomControl } from 'react-yandex-maps'
 
 export default function Drower(props) {
@@ -11,46 +10,50 @@ export default function Drower(props) {
     const location = props.location;
 
 
-    const foodName = useRef();
-    const foodKategory = useRef();
-    const foodPrice = useRef();
-    const foodInfo = useRef();
+    const filialnameuz = useRef();
+    const filialnameru = useRef();
+    const worktime_start = useRef();
+    const worktime_end = useRef();
+    const mark = useRef();
 
     const AddFood = () => {
 
-        let newFood = {
-            id: dataFood.length + 1,
-            img: Colacola,
-            name: foodName.current.value,
-            kategory: foodKategory.current.value,
-            price: foodPrice.current.value,
-            inf: foodInfo.current.value,
+        let newFiliall = {
+            id: dataFilial.length + 1,
+            filialnameuz: filialnameuz.current.value,
+            filialnameru: filialnameru.current.value,
+            worktime_start: worktime_start.current.value,
+            worktime_end: worktime_end.current.value,
+            mark: mark.current.value,
+            location: [41.316441, 69.294861],
         }
 
-        setFilials([...filials, newFood]);
+        setFilials([...filials, newFiliall]);
         setShowAddFilial(false);
     }
 
     const EditFood = (id) => {
-        let newFood = {
+        let newFilial = {
             id: id,
-            img: Colacola,
-            name: foodName.current.value,
-            kategory: foodKategory.current.value,
-            price: foodPrice.current.value,
-            inf: foodInfo.current.value,
+            filialnameuz: filialnameuz.current.value,
+            filialnameru: filialnameru.current.value,
+            worktime_start: worktime_start.current.value,
+            worktime_end: worktime_end.current.value,
+            mark: mark.current.value,
         }
-        let newFoods = [];
-        filials.forEach(food => {
-            if (id !== food.id) {
-                newFoods = [...newFoods, food];
+
+        let newFilials = [];
+        filials.forEach(filial => {
+            if (id !== filial.id) {
+                newFilials = [...newFilials, filial];
             } else {
-                newFoods = [...newFoods, newFood];
+                let location = filial.location;
+                newFilials = [...newFilials, {...newFilial, location}];
             }
 
         })
 
-        setFilials(newFoods);
+        setFilials(newFilials);
         setShowAddFilial(false);
     }
 
@@ -58,27 +61,25 @@ export default function Drower(props) {
         <DROWER show={showAddFilial}>
             <DROWER.CloseBtn show={showAddFilial} onClick={() => setShowAddFilial(false)}></DROWER.CloseBtn>
             <div className="container">
-                <h1>{props.input === 'edit' ? 'Maxsulotni tahrirlash' : "Yangi maxsulot qo'shish"}</h1>
+                <h1>{props.input === 'edit' ? 'Filialni tahrirlash' : "Yangi filial qo'shish"}</h1>
                 <div className="inp">
-                    <p className="titleInp">Maxsulot nomi</p>
-                    <input required type="text" ref={foodName} name="" id="" placeholder='maxsulot nomi' />
+                    <p className="titleInp">Filial nomi uz</p>
+                    <input required type="text" ref={filialnameuz} name="" id="" placeholder='Filial nomi uz' />
                 </div>
                 <div className="inp">
-                    <p className="titleInp">Kategoriya</p>
-                    <select required name="" id="" ref={foodKategory}>
-                        <option value="burger">Burger</option>
-                        <option value="ichimlik">Ichimlik</option>
-                        <option value="lavash">Lavash</option>
-                        <option value="lavash_mini">Lavash mini</option>
-                    </select>
+                    <p className="titleInp">Filial nomi ru</p>
+                    <input required type="text" name="" ref={filialnameru} id="" placeholder='Filial nomi ru' />
+                </div>
+                <div className="inp time">
+                    <p className="titleInp">Ish vaqti</p>
+                    <div className="times">
+                        <input type="time" name="" ref={worktime_start} id="" />
+                        <input type="time" name="" ref={worktime_end} id="" />
+                    </div>
                 </div>
                 <div className="inp">
-                    <p className="titleInp">Narxi</p>
-                    <input required type="text" name="" ref={foodPrice} id="" placeholder='maxsulot narxi' />
-                </div>
-                <div className="inp">
-                    <p className="titleInp">Qo'shimcha ma'lumot</p>
-                    <input type="text" name="" ref={foodInfo} id="" placeholder='maxsulot haqda qisqacha..' />
+                    <p className="titleInp">Filial mo'ljal</p>
+                    <input type="text" name="" ref={mark} id="" placeholder='Filial mo"ljal' />
                 </div>
                 <div className="inp" style={{
                     opacity: 1,

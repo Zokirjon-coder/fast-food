@@ -9,7 +9,6 @@ const KategoryListItem = (props) => {
     const [showEditFood, setShowEditFood] = useState(false);
     const {id, kategoriaUz, kategoriaRu, boshKategoria} = props.info;
     const [kategoria, setKategoria] = useContext(KategoriaApi);
-    const [kategory] = useState(kategoria);
 
     const onDelete = (id) =>{
         setKategoria(

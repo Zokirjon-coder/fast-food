@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { FILTER } from '../style/styled'
-// import { dataFood } from '../../utils/dataFood'
 import { MahsulotlarApi } from '../../context/maxsulotlar/MahsulotlarContext'
 
 const Filter = (props) => {
