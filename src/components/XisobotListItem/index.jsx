@@ -7,10 +7,10 @@ const FoodListItem = ({ info, onDelete }) => {
     return (
         <FoodItem>
             <Flex.Xisobot>
-                <div style={{ width: '220px' }}>{info.fillianName} <br />
+                <div style={{ width: '28%' }}>{info.fillianName} <br />
                     <span>operator: {info.operator}</span>
                 </div>
-                <div style={{ width: '205px' }}>{info.priceBook.price} <br /> <span>
+                <div style={{ width: '24%' }}>{info.priceBook.price} <br /> <span>
                     <span style={{
                         width: '8px',
                         borderRadius: '8px',
@@ -19,9 +19,9 @@ const FoodListItem = ({ info, onDelete }) => {
                         background: '#00ffd5',
                     }}></span> {info.priceBook.payWay}</span>
                 </div>
-                <div style={{ width: '205px' }}>{info.customer.name}<br />
+                <div style={{ width: '24%' }}>{info.customer.name}<br />
                     <span>{info.customer.phone}</span> </div>
-                <div style={{ width: '150px' }}>{info.date.day} <br />
+                <div style={{ width: '16%' }}>{info.date.day} <br />
                     <span>{info.date.clock}</span>
                 </div>
                 <div>

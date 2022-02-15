@@ -126,6 +126,7 @@ display: flex;
 flex-direction: column;
 height: 100%;
 flex: 1;
+width: 100%;
 `
 
 export const ColumnName = styled.div`
@@ -147,7 +148,7 @@ ColumnName.length = styled.span`
 `
 
 export const CradSumm = styled.div`
-width: 224px;
+width: calc(100% - 15px);
 min-height: 50px;
 display: flex;
 justify-content: space-between;

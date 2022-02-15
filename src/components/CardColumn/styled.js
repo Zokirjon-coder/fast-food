@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ColumnCard = styled.div`
-width: 224px;
+width: calc(100% - 15px);
 min-height: 345px;
 background: white;
 box-shadow: 0px 20px 25px rgba(176, 177, 181, 0.432802);

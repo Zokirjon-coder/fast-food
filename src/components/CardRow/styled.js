@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const RowCard = styled.div`
-width: 878px;
+width: calc(100% - 20px);
 min-height: 150px;
 background: #FFFFFF;
 box-shadow: 0px 2px 2px rgba(174, 176, 181, 0.314986);
 border-radius: 6px;
 margin-bottom: 12px;
 display: grid;
-grid-template-columns: 198px 227px 252px 201px;
+grid-template-columns: 22.5% 25.8% 28.7% 22.8%;
 `;
 
 RowCard.Header = styled.div`

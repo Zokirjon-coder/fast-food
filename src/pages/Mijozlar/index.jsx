@@ -10,11 +10,11 @@ const Mijozlar = (props) => {
     const [customer, setCustomer] = useContext(CustomersApi)
 
     const headingTitle = [
-        { id: 1, title: 'mijoz ismi', width: '210' },
-        { id: 2, title: 'telefon raqami', width: '180' },
-        { id: 3, title: 'buyurtmalar soni', width: '150' },
-        { id: 4, title: 'status', width: '150' },
-        { id: 5, title: 'action', width: '150' },
+        { id: 1, title: 'mijoz ismi', width: '25' },
+        { id: 2, title: 'telefon raqami', width: '21.4' },
+        { id: 3, title: 'buyurtmalar soni', width: '17.8' },
+        { id: 4, title: 'status', width: '14' },
+        { id: 5, title: 'action', width: '17.8' },
     ]
 
 
@@ -24,7 +24,7 @@ const Mijozlar = (props) => {
             <Headings>
                 <Flex>
                     {
-                        headingTitle.map(heading => <div key={heading.id} style={{ width: `${heading.width}px` }}>{heading.title}</div>)
+                        headingTitle.map(heading => <div key={heading.id} style={{ width: `${heading.width}%` }}>{heading.title}</div>)
                     }
                 </Flex>
             </Headings>

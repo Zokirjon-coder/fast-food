@@ -44,10 +44,10 @@ const CustomerListItem = (props) => {
     return (
         <FilialItem>
             <Flex>
-                <div className="filialnameuz" style={{width: '210px'}}>{name}</div>
-                <div className="filialnameru" style={{width: '180px'}}>{phone}</div>
-                <div className="mark" style={{width: '150px', textAlign: 'center'}}>{numberOfBooks}</div>
-                <div className="worktime" style={{fontWeight: 700, width: '150px', color: `${status==="aktiv" ? '#20D472':'#FA2738'}`}}>{status}</div>
+                <div className="filialnameuz" style={{width: '25%'}}>{name}</div>
+                <div className="filialnameru" style={{width: '21.4%'}}>{phone}</div>
+                <div className="mark" style={{width: '20%', textAlign: 'center'}}>{numberOfBooks}</div>
+                <div className="worktime" style={{fontWeight: 700, width: '14%', color: `${status==="aktiv" ? '#20D472':'#FA2738'}`}}>{status}</div>
                 <div className="fillialaction">
                     <CircleBtn onClick={()=>changeStatus(props['info'])} noML={true} param={{ diametr: "35", borderWidth: "4" }}>
                         <Flex className="centered">

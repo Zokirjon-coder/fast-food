@@ -9,11 +9,11 @@ const XisobotList = () => {
 
     const [xisobot, setXisobot] = useContext(XisobotlarApi)
     const headingTitle = [
-    {id: 1, title: 'fillial', width: '210' },
-    {id: 2, title: 'buyurtma summasi', width: '200' },
-    {id: 3, title: 'mijoz', width: '200' },
-    {id: 4, title: 'sana', width: '150' },
-    {id: 5, title: 'action', width: '80' },
+    {id: 1, title: 'fillial', width: '25' },
+    {id: 2, title: 'buyurtma summasi', width: '23.8' },
+    {id: 3, title: 'mijoz', width: '23.8' },
+    {id: 4, title: 'sana', width: '17.8' },
+    {id: 5, title: 'action', width: '10' },
     ];
 
     const onDelete = (id) => {
@@ -27,7 +27,7 @@ const XisobotList = () => {
             <Headings>
                 <Flex>
                     {
-                        headingTitle.map(heading => <div key={heading.id} style={{ width: `${heading.width}px` }}>{heading.title}</div>)
+                        headingTitle.map(heading => <div key={heading.id} style={{ width: `${heading.width}%` }}>{heading.title}</div>)
                     }
                 </Flex>
             </Headings>
